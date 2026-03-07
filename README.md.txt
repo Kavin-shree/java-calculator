@@ -6,18 +6,18 @@ performing basic arithmetic operations.
 
 #Features:
 
-Addition (+)
-Subtraction (-)
-Multiplication (*)
-Division (/)
-Keyboard input support
-Simple and clean GUI
-Runnable JAR file included
+*Addition (+)
+*Subtraction (-)
+*Multiplication (*)
+*Division (/)
+*Keyboard input support
+*Simple and clean GUI
+*Runnable JAR file included
 
 #Technologies Used:
 
-Java
-Java Swing (GUI)
+*Java
+*Java Swing (GUI)
 
 #How to Run
 
@@ -25,22 +25,18 @@ Java Swing (GUI)
 
 	Download the project and double-click:
 
-		Calculator.jar
+		*Calculator.jar
 
 	Or run using terminal:
 
-		java -jar Calculator.jar
+		*java -jar Calculator.jar
 
 #Method 2: Compile and Run Manually
 
 	Compile the program:
 
-		javac Calculator.java
+		*javac Calculator.java
 
 	Run the program:
 
-		java Calculator
-
-#Screenshot
-	![Calculator Screenshot](Calculator.png)
-
+		*java Calculator
