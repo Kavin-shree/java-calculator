@@ -1,6 +1,42 @@
-# Java Calculator
+#Java Calculator
 
-A simple and user-friendly **Java Calculator** built using **Java Swing**.  
-It allows users to perform basic arithmetic operations such as addition, subtraction, multiplication, and division.  
-The calculator supports both **mouse clicks** and **keyboard input**, providing a smooth and interactive GUI experience.  
-This project demonstrates basic **Java GUI programming** and **event handling** concepts, making it a great learning example for beginners.
+A simple desktop calculator application built using Java Swing.
+This project provides a graphical user interface (GUI) for
+performing basic arithmetic operations.
+
+#Features:
+
+*Addition (+)
+*Subtraction (-)
+*Multiplication (*)
+*Division (/)
+*Keyboard input support
+*Simple and clean GUI
+*Runnable JAR file included
+
+#Technologies Used:
+
+*Java
+*Java Swing (GUI)
+
+#How to Run
+
+#Method 1: Run the JAR file (Recommended)
+
+	Download the project and double-click:
+
+		*Calculator.jar
+
+	Or run using terminal:
+
+		*java -jar Calculator.jar
+
+#Method 2: Compile and Run Manually
+
+	Compile the program:
+
+		*javac Calculator.java
+
+	Run the program:
+
+		*java Calculator
