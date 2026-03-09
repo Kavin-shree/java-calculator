@@ -40,3 +40,5 @@ performing basic arithmetic operations.
 	Run the program:
 
 		*java Calculator
+		
+NOTE :" if any java exceptional error occur", download java jdk kit and then run the calculator.
