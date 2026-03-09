@@ -41,13 +41,24 @@ public class Calculator extends JFrame implements ActionListener, KeyListener {
 
     public void calculate() {
 
-        num2 = Double.parseDouble(textField.getText());
+        try {
+            num2 = Double.parseDouble(textField.getText());
+        } catch (NumberFormatException e) {
+            textField.setText("Error: Invalid input");
+            return;
+        }
 
         switch(operator){
             case "+": result = num1 + num2; break;
             case "-": result = num1 - num2; break;
-            case "*": result = num1 * num2; break;
-            case "/": result = num1 / num2; break;
+            case "*:": result = num1 * num2; break;
+            case "/": 
+                if(num2 == 0) {
+                    textField.setText("Error: Division by 0");
+                    return;
+                }
+                result = num1 / num2; 
+                break;
         }
 
         textField.setText("" + result);
@@ -61,14 +72,22 @@ public class Calculator extends JFrame implements ActionListener, KeyListener {
             textField.setText(textField.getText() + command);
         }
 
-        else if(command.matches("[/\\*\\-\\+]")){
-            num1 = Double.parseDouble(textField.getText());
-            operator = command;
-            textField.setText("");
+        else if(command.matches("[\/\*\-\+]")){
+            if(!textField.getText().isEmpty()) {
+                try {
+                    num1 = Double.parseDouble(textField.getText());
+                    operator = command;
+                    textField.setText("");
+                } catch (NumberFormatException e1) {
+                    textField.setText("Error: Invalid input");
+                }
+            }
         }
 
-        else if(command.equals("=")){
-            calculate();
+        else if(command.equals("=")){ 
+            if(!textField.getText().isEmpty()) {
+                calculate();
+            }
         }
 
         else if(command.equals("C")){
@@ -86,14 +105,22 @@ public class Calculator extends JFrame implements ActionListener, KeyListener {
             textField.setText(textField.getText()+key);
         }
 
-        if(key=='+' || key=='-' || key=='*' || key=='/'){
-            num1 = Double.parseDouble(textField.getText());
-            operator = ""+key;
-            textField.setText("");
+        if(key=='+' || key=='-' || key=='*' || key=='/'){ 
+            if(!textField.getText().isEmpty()) {
+                try {
+                    num1 = Double.parseDouble(textField.getText());
+                    operator = ""+key;
+                    textField.setText("");
+                } catch (NumberFormatException e2) {
+                    textField.setText("Error: Invalid input");
+                }
+            }
         }
 
         if(e.getKeyCode()==KeyEvent.VK_ENTER){
-            calculate();
+            if(!textField.getText().isEmpty()) {
+                calculate();
+            }
         }
 
         if(e.getKeyCode()==KeyEvent.VK_BACK_SPACE){
