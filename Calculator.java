@@ -51,7 +51,7 @@ public class Calculator extends JFrame implements ActionListener, KeyListener {
         switch(operator){
             case "+": result = num1 + num2; break;
             case "-": result = num1 - num2; break;
-            case "*:": result = num1 * num2; break;
+            case "*": result = num1 * num2; break;
             case "/": 
                 if(num2 == 0) {
                     textField.setText("Error: Division by 0");
@@ -101,32 +101,28 @@ public class Calculator extends JFrame implements ActionListener, KeyListener {
 
         char key = e.getKeyChar();
 
+        // Only accept digits and decimal point
         if(Character.isDigit(key) || key=='.'){
             textField.setText(textField.getText()+key);
+            e.consume(); // Consume the event to prevent default behavior
         }
-
-        if(key=='+' || key=='-' || key=='*' || key=='/'){ 
-            if(!textField.getText().isEmpty()) {
-                try {
-                    num1 = Double.parseDouble(textField.getText());
-                    operator = ""+key;
-                    textField.setText("");
-                } catch (NumberFormatException e2) {
-                    textField.setText("Error: Invalid input");
-                }
-            }
-        }
-
-        if(e.getKeyCode()==KeyEvent.VK_ENTER){
-            if(!textField.getText().isEmpty()) {
-                calculate();
-            }
-        }
-
-        if(e.getKeyCode()==KeyEvent.VK_BACK_SPACE){
+        // Allow backspace
+        else if(e.getKeyCode()==KeyEvent.VK_BACK_SPACE){
             String text = textField.getText();
             if(text.length()>0)
                 textField.setText(text.substring(0,text.length()-1));
+            e.consume();
+        }
+        // Allow Enter key for equals
+        else if(e.getKeyCode()==KeyEvent.VK_ENTER){
+            if(!textField.getText().isEmpty()) {
+                calculate();
+            }
+            e.consume();
+        }
+        // Block all other keys
+        else {
+            e.consume(); // Ignore all other key presses
         }
     }
 
